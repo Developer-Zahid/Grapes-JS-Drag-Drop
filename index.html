@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Site Meta Data -->
+    <meta name="author" content="Developer Zahid | Zahid Hasan Munna">
+    <meta name="description" content="My name is Zahid Hasan Munna. I'm a Front-End Developer. I created these...">
+    <meta name="keywords" content="frontend developer, frontend designer, web designer, developer, designer, dev-z">
+	<!-- Site Title -->
+	<title>Drag and Drop Builder</title>
+	<!-- Favicon Link -->
+	<link rel="icon" type="image/png" sizes="512x512" href="./assets/images/favicon/android-chrome-512x512.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="./assets/images/favicon/android-chrome-192x192.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
+	<link rel="icon" type="image/x-icon" href="./assets/images/favicon/favicon.ico">
+	<!-- All CSS -->
+	<link rel="stylesheet" href="./assets/plugins/grapesjs/css/grapes.min.css">
+	<!-- <link rel="stylesheet" href="./assets/plugins/grapesjs/css/grapesjs-preset-webpage.min.css"> -->
+	<link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+	<div class="builder-wrapper overflow-hidden">
+		<header class="builder-header d-flex align-items-center justify-content-between">
+			<a href="./" class="d-inline-block h-100">
+				<img src="./assets/images/logo/logo.png" alt="logo" class="img-fluid h-100">
+			</a>
+			<div class="builder-header__devices-nav position-static h-100 bg-transparent"></div>
+			<!-- <ul class="nav h-100 devices-nav">
+				<li class="nav-item">
+					<button id="device-desktop" class="builder-btn active" aria-label="desktop device" data-toggle="tab" role="tab" aria-selected="true">
+						<i class="bi bi-window-desktop"></i>
+					</button>
+				</li>
+				<li class="nav-item">
+					<button id="device-laptop" class="builder-btn" aria-label="laptop device" data-toggle="tab" role="tab" aria-selected="false">
+						<i class="bi bi-laptop"></i>
+					</button>
+				</li>
+				<li class="nav-item">
+					<button id="device-tablet" class="builder-btn" aria-label="tablet device" data-toggle="tab" role="tab" aria-selected="false">
+						<i class="bi bi-tablet"></i>
+					</button>
+				</li>
+				<li class="nav-item">
+					<button id="device-mobile" class="builder-btn" aria-label="phone device" data-toggle="tab" role="tab" aria-selected="false">
+						<i class="bi bi-phone"></i>
+					</button>
+				</li>
+			</ul> -->
+			<ul class="nav h-100">
+				<li class="nav-item">
+					<button class="builder-btn theme-toggler d-inline-flex align-items-center justify-content-center" aria-label="light mode">
+						<i class="bi bi-brightness-high theme-toggler__icon theme-toggler__icon--light position-absolute"></i>
+						<i class="bi bi-moon theme-toggler__icon theme-toggler__icon--dark position-absolute"></i>
+					</button>
+				</li>
+				<li class="nav-item">
+					<div class="builder-header__basic-actions h-100 bg-transparent"></div>
+				</li>
+				<li class="nav-item">
+					<button class="builder-btn" aria-label="import">
+						<i class="bi bi-upload"></i>
+					</button>
+				</li>
+			</ul>
+		</header>
+		<aside class="builder-aside">
+			<ul class="nav nav-tabs justify-content-between" id="myTab" role="tablist">
+				<li class="nav-item" role="presentation">
+				  	<a class="nav-link border-top-0 rounded-0 active" title="Open Components Manager" id="home-tab" data-toggle="tab" href="#components" role="tab" aria-controls="components" aria-selected="true">
+						<i class="bi bi-grid-fill"></i>
+					</a>
+				</li>
+				<li class="nav-item" role="presentation">
+				  	<a class="nav-link border-top-0 rounded-0" title="Open Trait Manager" id="profile-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">
+						<i class="bi bi-gear-fill"></i>
+					</a>
+				</li>
+				<li class="nav-item" role="presentation">
+				  	<a class="nav-link border-top-0 rounded-0" title="Open Layer Manager" id="profile-tab" data-toggle="tab" href="#layers" role="tab" aria-controls="layers" aria-selected="false">
+						<i class="bi bi-layers-fill"></i>
+					</a>
+				</li>
+				<li class="nav-item" role="presentation">
+				  	<a class="nav-link border-top-0 rounded-0" title="Open Style Manager" id="contact-tab" data-toggle="tab" href="#styles" role="tab" aria-controls="styles" aria-selected="false">
+						<i class="bi bi-droplet-half"></i>
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active" id="components" role="tabpanel" aria-labelledby="components-tab">
+					<div class="builder-aside__pane" id="blocks-container"></div>
+				</div>
+				<div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+					<div class="builder-aside__pane" id="trait-container"></div>
+				</div>
+				<div class="tab-pane fade" id="layers" role="tabpanel" aria-labelledby="layers-tab">
+					<div class="builder-aside__pane" id="layers-container"></div>
+				</div>
+				<div class="tab-pane fade" id="styles" role="tabpanel" aria-labelledby="styles-tab">
+					<div class="builder-aside__pane" id="styles-container"></div>
+				</div>
+			</div>
+		</aside>
+		<main class="builder-editor" id="editor">
+		</main>
+	</div>
+
+	<!-- All Scripts -->
+	<script src="./assets/js/jquery-1.12.4.min.js"></script>
+	<script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="./assets/plugins/grapesjs/js/grapes.min.js"></script>
+	<script src="./assets/plugins/grapesjs/js/grapesjs-blocks-bootstrap4.min.js"></script>
+	<!-- <script src="./assets/plugins/grapesjs/js/grapesjs-preset-webpage.min.js"></script> -->
+	<script  src="./assets/js/script.js"></script>
+</body>
+</html>

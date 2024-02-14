@@ -1,0 +1,9 @@
+/* Common Transition Style */
+%transition{
+    transition: all .3s linear;
+}
+
+/* Common Background Transition Style */
+%transition-bg{
+    transition: background .3s linear;
+}

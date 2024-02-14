@@ -1,0 +1,21 @@
+/* Header Section Style */
+.builder-header{
+	color: $color-text;
+	background-color: $color-layer;
+	z-index: 99;
+	@extend %transition-bg;
+	@include light-mode{
+		color: $color-text--light;
+		background-color: $color-white;
+		box-shadow: 0 4px 24px 0 rgba(34,41,47,.1);
+	}
+	&__devices-nav,
+	&__basic-actions{
+		.gjs-pn-buttons{
+			height: 100%;
+			.gjs-pn-btn{
+				height: 100%;
+			}
+		}
+	}
+}

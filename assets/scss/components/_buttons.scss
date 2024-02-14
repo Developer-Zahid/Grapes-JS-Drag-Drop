@@ -1,0 +1,89 @@
+/* Common Button's Style */
+.builder-btn{
+	position: relative;
+	color: $color-text;
+	background-color: transparent;
+	border-width: 0 1px 0 1px;
+	border-style: solid;
+	border-color: $color-border;
+	height: 100%;
+	width: toRem(50);
+	@extend %transition;
+	@include light-mode{
+		color: $color-text--light;
+		border-color: $color-border--light;
+	}
+	&::before{
+		content: attr(aria-label);
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 100%);
+		width: max-content;
+		font-size: toRem(13);
+		font-weight: 500;
+		padding: toRem(6);
+		border-radius: toRem(5);
+		color: $color-bg;
+		background-color: $color-text;
+		@include light-mode{
+			color: $color-text;
+			background-color: $color-bg;
+		}
+		pointer-events: none;
+		opacity: 0;
+		visibility: hidden;
+		text-transform: capitalize;
+		transition:
+			opacity 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+			transform 0.4s cubic-bezier(0.65, 0, 0.35, 1),
+			visibility 0.3s cubic-bezier(0.65, 0, 0.35, 1),;
+	}
+	&:hover,
+	&:focus-visible,
+	&[class*="active"]{
+		background-color: $color-bg-active;
+		border-color: $color-bg-active;
+		@include light-mode{
+			background-color: $color-bg-active--light;
+			border-color: $color-bg-active--light;
+		}
+	}
+	&:hover,
+	&:focus-visible{
+		color: $color-primary;
+		&::before{
+			opacity: 1;
+			visibility: visible;
+			transform: translate(-50%, 115%);
+			transition-duration: 0;
+		}
+	}
+	&[class*="active"]{
+		color: $color-white;
+		@include light-mode{
+			color: $color-text--light;
+		}
+	}
+}
+
+.theme-toggler{
+	&__icon{
+		&--dark{
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+	&.toggle{
+		.theme-toggler__icon{
+			&--light{
+				opacity: 0;
+				visibility: hidden;
+			}
+			&--dark{
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}

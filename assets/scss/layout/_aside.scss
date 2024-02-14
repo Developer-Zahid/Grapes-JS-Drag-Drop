@@ -1,0 +1,72 @@
+/* Aside Section Style */
+.builder-aside{
+    @extend %transition-bg;
+    color: $color-text;
+    background-color: darken($color-layer, $amount: 3);
+    overflow-y: auto;
+    @include light-mode{
+		color: $color-text--light;
+		background-color: $color-white;
+		box-shadow: 0 4px 24px 0 rgba(34,41,47,.1);
+	}
+    .nav{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 99;
+        width: toRem(250);
+        background-color: $color-bg;
+        border-bottom-color: $color-border;
+        @extend %transition;
+        @include light-mode{
+            background-color: $color-bg--light;
+            border-bottom-color: $color-border--light;
+        }
+        &-item{
+            &:first-child{
+                .nav-link{
+                    &.active,
+                    &:hover,
+                    &:focus{
+                        border-left-color: transparent;
+                    }
+                }
+            }
+            &:last-child{
+                .nav-link{
+                    &.active,
+                    &:hover,
+                    &:focus{
+                        border-right-color: transparent;
+                    }
+                }
+            }
+        }
+        &-link{
+            @extend %transition;
+            &:hover,
+            &:focus-visible{
+                border-color: $color-border $color-border darken($color-layer, $amount: 3);
+                background-color: darken($color-layer, $amount: 3);
+                @include light-mode{
+                    background-color: $color-white;
+                    border-color: $color-border--light $color-border--light $color-white;
+                }
+            }
+            &.active{
+                color: $color-primary;
+                background-color: darken($color-layer, $amount: 3);
+                border-color: $color-border $color-border darken($color-layer, $amount: 3);
+                @include light-mode{
+                    background-color: $color-white;
+                    border-color: $color-border--light $color-border--light $color-white;
+                }
+            }
+        }
+    }
+    .tab{
+        &-content{
+            padding: toRem(42) 0;
+        }
+    }
+}

@@ -1,0 +1,130 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+::selection{
+	color: $color-white;
+	background: $color-primary;
+}
+
+html,
+body{
+	scroll-behavior: smooth;
+}
+
+html{
+	font-size: 16px;
+	text-size-adjust: none;
+}
+
+body {
+	color: $color-black;
+	font-weight: 400;
+	font-family: $font-primary;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+	text-decoration: none;
+	color: unset;
+}
+
+button,
+button:hover,
+button:focus,
+button:active {
+	outline: none;
+}
+
+input:-webkit-autofill{
+	-webkit-text-fill-color: unset;
+	transition: background-color 5000s;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+img{
+	object-fit: cover;
+}
+
+.user-select-none{
+	pointer-events: none;
+}
+
+.list-inline{
+	font-size: 0;
+	&-item{
+		font-size: 1rem;
+	}
+}
+
+/* Preloader Section Style */
+.preloader{
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+.builder{
+	&-wrapper{
+		width: 100vw;
+		height: 100vh;
+		display: grid;
+		grid-template-columns: 1fr toRem(250);
+		grid-template-rows: toRem(42) 1fr;
+		grid-template-areas:
+		'builder_header builder_aside'
+		'builder_editor builder_aside';
+		@extend %transition-bg;
+		background-color: $color-bg;
+		@include light-mode{
+			background-color: $color-bg--light;
+		}
+		@include tablet{
+			grid-template-rows: auto 1fr;
+			grid-template-columns: 1fr 30vw;
+		}
+	}
+	&-header{
+		// grid-column: 1 / 2;
+		// grid-row: 1 / 2;
+		grid-area: builder_header;
+	}
+	&-aside{
+		// grid-column: 1 / 2;
+		// grid-row: 1 / 2;
+		grid-area: builder_aside;
+	}
+	&-editor{
+		// grid-column: 1 / -1;
+		// grid-row: 1 / 3;
+		grid-area: builder_editor;
+	}
+}
+.gjs-one-bg{
+	background-color: $color-bg;
+		@include light-mode{
+			background-color: $color-bg--light;
+		}
+}
+.gjs-two-color{
+	color: unset;
+}
+.gjs-cv-canvas{
+	// width: 100%;
+	// height: 100%;
+	// position: static;
+	// z-index: -1;
+	background-color: transparent;
+}
